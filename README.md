@@ -2,10 +2,10 @@
 
 # Don't waste your time
 If you're simply just looking to claim a couple groups, use some discord servers.
-https://discord.gg/hF7YqcUebc [Rx's Server]
-https://discord.gg/eSjbvZvUFN [Tokyo Club]
-https://discord.gg/XPqSrE5pxX [Metrik Utilities]
-https://discord.gg/HxnPVn8hAf [Rose Traders]
+- https://discord.gg/hF7YqcUebc [Rx's Server]
+- https://discord.gg/eSjbvZvUFN [Tokyo Club]
+- https://discord.gg/XPqSrE5pxX [Metrik Utilities]
+- https://discord.gg/HxnPVn8hAf [Rose Traders]
 
 # Features
 - High-performance scanning (up to 50M+ checks-per-minute)
