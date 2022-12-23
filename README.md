@@ -46,6 +46,7 @@ python finder.py --workers 16 --proxy-file proxies.txt
 
 # --webhook-url
 If the `--webhook-url` arg. is specified, an embed will be sent whenever a claimable group is found. E.g.:
+![68747470733a2f2f692e696d6775722e636f6d2f56654d426f43412e706e67](https://user-images.githubusercontent.com/110559679/209333716-9385412c-59f9-453a-b283-bb4b294b6f3e.png)
 
 <img src="https://imgur.com/a/vTrDE1r" alt="Embed sample" width="400"/>
 
