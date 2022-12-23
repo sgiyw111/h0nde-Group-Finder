@@ -1,8 +1,11 @@
-# roblox-claimable-group-finder
-<p align="center"><img src="https://i.imgur.com/131wdCq.png" height="300" width="637"></p>
+# Roblox Group Finder
 
 # Don't waste your time
-If you're simply just looking to claim a couple groups, I have an [instance](https://www.roblox.com/games/7963219872) of this scanner running at ~25m RPM, feel free to use it.
+If you're simply just looking to claim a couple groups, use some discord servers.
+https://discord.gg/hF7YqcUebc [Rx's Server]
+https://discord.gg/eSjbvZvUFN [Tokyo Club]
+https://discord.gg/XPqSrE5pxX [Metrik Utilities]
+https://discord.gg/HxnPVn8hAf [Rose Traders]
 
 # Features
 - High-performance scanning (up to 50M+ checks-per-minute)
@@ -12,8 +15,8 @@ If you're simply just looking to claim a couple groups, I have an [instance](htt
 
 # Setup
 0. Download the [latest release](https://www.python.org/downloads/) of Python and install it with the [Add to PATH](https://datatofish.com/wp-content/uploads/2018/10/0001_add_Python_to_Path.png) option checked.
-1. [Download](https://github.com/h0nde/roblox-claimable-group-finder/archive/refs/heads/main.zip) this repository and extract it to a folder.
-2. Create a `proxies.txt` file within the folder and fill it with your HTTP proxies.
+1. [Download](https://github.com/NotZkoo/h0nde-Group-Finder/archive/refs/heads/main.zip) this repository and extract it to a folder.
+2. Fill proxies.txt with your HTTP proxies.
 3. Click the `File` tab on your file explorer window, then click `Open PowerShell`.
 4. Execute the command in the `Usage` section below.
 
@@ -44,7 +47,7 @@ python finder.py --workers 16 --proxy-file proxies.txt
 # --webhook-url
 If the `--webhook-url` arg. is specified, an embed will be sent whenever a claimable group is found. E.g.:
 
-<img src="https://i.imgur.com/VeMBoCA.png" alt="Embed sample" width="400"/>
+<img src="https://imgur.com/a/vTrDE1r" alt="Embed sample" width="400"/>
 
 # --cut-off
 By default, when encountering a missing/deleted group, it's ID will be removed from the queue so that it won't be checked again.
