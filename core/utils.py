@@ -1,6 +1,7 @@
 from socket import socket
 from json import dumps as json_dumps
 from base64 import b64encode
+pip install requests
 
 ssl_context = __import__("ssl").create_default_context()
 
