@@ -1,4 +1,3 @@
-from .constants import EMBED_FOOTER_TEXT
 from socket import socket
 from json import dumps as json_dumps
 from base64 import b64encode
@@ -14,18 +13,20 @@ def parse_proxy_string(proxy_str):
         hostname, port = fields
         if auth:
             auth = "Basic " + b64encode(auth.encode()).decode()
+        addr = (hostname.lower(), int(port))
+        return auth, addr
+
     elif len(fields) == 3:
         hostname, port, auth = fields
         auth = "Basic " + b64encode(auth.encode()).decode()
-    else:
-        raise Exception(f"Unrecognized proxy format: {proxy_str}")
-
-    addr = (hostname.lower(), int(port))
-    return auth, addr
+        addr = (hostname.lower(), int(port))
+        return auth, addr
+    
+    raise Exception(f"Unrecognized proxy format: {proxy_str}")
 
 def parse_batch_response(data, limit):
     index = 10
-    status_assoc = {}
+    status = {}
     for _ in range(limit):
         id_index = data.find(b'"id":', index)
         if id_index == -1:
@@ -33,9 +34,9 @@ def parse_batch_response(data, limit):
         index = data.find(b",", id_index + 5)
         group_id = data[id_index + 5 : index]
         index = data.find(b'"owner":', index) + 8
-        status_assoc[group_id] = (data[index] == 123)
+        status[group_id] = (data[index] == 123)
         index += 25
-    return status_assoc
+    return status
 
 def find_latest_group_id():
     group_id = 0
@@ -64,7 +65,6 @@ def send_webhook(url, **kwargs):
         port = int(port)
     else:
         port = 443 if https else 80
-
     sock = make_http_socket((hostname, port), ssl_wrap=https)
     try:
         sock.send(
@@ -77,18 +77,17 @@ def send_webhook(url, **kwargs):
         sock.recv(4096)
     finally:
         shutdown_socket(sock)
-
 def make_embed(group_info, date):
     return dict(
-        title="☆ New Claimable Group! ☆",
+        title="Found claimable group", color=0xF23434,
         url=f"https://www.roblox.com/groups/{group_info['id']}",
-        fields=[
-            dict(name="Group ID:", value=group_info["id"]),
-            dict(name="Group Name:", value=group_info["name"]),
-            dict(name="Group Members:", value=group_info["memberCount"])
+          fields=[
+            dict(name="Group ID", value=group_info["id"]),
+            dict(name="Group Name", value=group_info["name"]),
+            dict(name="Group Members", value=group_info["memberCount"])
         ],
         footer=dict(
-            text=EMBED_FOOTER_TEXT
+            text='ⓒFinder | discord.gg/qXVUhy8BBv•'
         ),
         timestamp=date.isoformat()
     )
